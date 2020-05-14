@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>此处展示设计模式</div>
+    <div id="div1">div1</div>
+</body>
+<script>
+    var func = function (a, b, c) {
+        alert([a, b, c])
+    };
+
+    //func.apply(null, [1, 2, 3]);
+
+    var obj1 = {
+        name: 'sven'
+    };
+    var obj2 = {
+        name: 'eric'
+    };
+    window.name = 'window';
+    var getName = function () {
+        alert(this.name);
+    };
+    //getName();
+    //getName.apply(obj1);
+    //getName.apply(obj2);
+
+    document.getElementById('div1').onclick = function () {
+        var func = function () {
+            alert(this.id);
+        }
+        func.call(this);
+    };
+</script>
+
+</html>

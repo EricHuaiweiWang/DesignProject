@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div>闭包之旅</div> -->
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</body>
+
+<script>
+    var report = (function () {
+        var imgs = [];
+        return function (src) {
+            var img = new Image();
+            imgs.push(img);
+            img.src = src;
+        }
+    });
+
+    var mult01 = (function () {
+        var cache = {};
+        var calculate = function () {
+            var a = 1;
+            for (var i = 0, l = arguments.length; i < l; i++) {
+                a = a * arguments[i];
+            }
+            return a;
+        };
+
+        return function () {
+            var args = Array.prototype.join.call(arguments, ',');
+            if (args in cache) {
+                return cache[args];
+            }
+            return cache[args] = calculate.apply(null, arguments);
+        }
+    })();
+
+    var mult = (function () {
+        var cache = {};
+        return function () {
+            var args = Array.prototype.join.call(arguments, ',');
+            if (args in cache) {
+                return cache[args];
+            }
+            var a = 1;
+            for (var i = 0, l = arguments.length; i < l; i++) {
+                a = a * arguments[i];
+            }
+            return cache[args] = a;
+        }
+    })();
+
+    /*  var cache={};
+     var mult=function(){
+         var args=Array.prototype.join.call(arguments,',');
+         if(cache[args])
+         {
+             return cache[args];
+         }
+         var a=1;
+         for(var i=0,l=arguments.length;i<l;i++)
+         {
+             a=a*arguments[i];
+         }
+         return cache[args]=a;
+     } 
+     console.log(mult(1,2,3)); */
+</script>
+
+<script>
+    /* var nodes = document.getElementsByTagName('div');
+    for (var i = 1, len = nodes.length; i < len; i++) {
+        (function (i) {
+            nodes[i].onclick = function () {
+                console.log(i);
+            }
+        })(i);
+    }
+     var a = 1;
+    var func1 = function () {
+        var b = 2;
+        var func2 = function () {
+            var c = 3;
+            alert(b);
+            alert(a);
+        };
+        func2();
+        alert(c);
+    };
+    func1();
+    var func = function () {
+        var a = 1;
+        return function () {
+            a++;
+            alert(a);
+        }
+    };
+    var f=func();
+    var mult=function(){
+        var a=1;
+        for(var i=0,l=arguments.length;i<l;i++){
+            a=a*arguments[i];
+        }
+        return a;
+    } */
+</script>
+
+</html>
