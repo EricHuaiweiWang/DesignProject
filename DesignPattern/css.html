@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p {
+        color: blue;
+    }
+
+    strong {
+        color: red;
+        text-decoration: underline;
+    }
+
+    #data-table-1 td:first-child {
+        font-weight: bold;
+        color: red;
+    }
+
+    #data-table-1 td:first-child+td {
+        font-family: monospace;
+        color: grey;
+    }
+</style>
+
+<body>
+    <p><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets</p>
+    <table id="data-table-1">
+        <tr>
+            <td>Prefix</td>
+            <td>0001</td>
+            <td>default</td>
+        </tr>
+    </table>
+</body>
+
+</html>

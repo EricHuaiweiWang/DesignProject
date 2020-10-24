@@ -5,11 +5,119 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script src="./js/higherOrder.js?t=202009251322"></script>
+    <style>
+        .triangle {
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            /* border-top:50px solid #666; */
+            border-bottom: 50px solid #999;
+            width: 0px;
+            height: 0px;
+            background-color: transparent;
+        }
+
+        .triangle60 {
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            /* border-top:50px solid #666; */
+            border-bottom: 80px solid #999;
+            width: 0px;
+            height: 0px;
+            background-color: transparent;
+        }
+
+        .triangleLeft {
+            border-left: 50px solid #000;
+            /* border-right:50px solid transparent; */
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            width: 0px;
+            height: 0px;
+            background-color: transparent;
+        }
+
+        .triangleRight {
+            border-right: 50px solid #000;
+            /* border-right:50px solid transparent; */
+            border-top: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            width: 0px;
+            height: 0px;
+            background-color: transparent;
+        }
+
+        .rightAngle {
+            border-left: 60px solid transparent;
+            border-right: 0 solid transparent;
+            border-bottom: 60px solid #000;
+            width: 0px;
+            height: 0px;
+        }
+
+        .chat-msg {
+            width: 300px;
+            height: 80px;
+            border: 1px solid #ccc;
+            position: relative;
+        }
+
+        .chat-msg:before {
+            content: "";
+            position: absolute;
+            left: -10px;
+            top: 34px;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-right: 10px solid #ccc;
+        }
+
+        .chat-msg:after {
+            content: "";
+            position: absolute;
+            left: -8px;
+            top: 34px;
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-right: 10px solid #fff;
+        }
+
+        .chat-msg {
+            filter: drop-shadow(0 0 2px #999);
+            background-color: #fff;
+        }
+
+        .choose {
+            counter-reset: fruit;
+        }
+
+        .choose input:checked {
+            counter-increment: fruit;
+        }
+
+        .count:before {
+            content: counter(fruit);
+        }
+    </style>
 </head>
 
 <body>
+    <div class="choose">
+        <label for=""><input type="checkbox" name="" id="">apple</label>
+        <label for=""><input type="checkbox" name="" id="">banna</label>
+    </div>
+    <p>您选择了<span class="count"></span>种水果</p>
+    
+    <div class="chat-msg"></div>
     <div>此处展示设计模式</div>
-    <div id="div1">div1</div>
+    <div class="triangle"></div>
+    <div class="triangle60"></div>
+    <div class="triangleLeft"></div>
+    <div class="triangleRight"></div>
+    <div class="rightAngle"></div>
+    <div class="triangleRight"></div>
+
 </body>
 <script>
     var func = function (a, b, c) {
