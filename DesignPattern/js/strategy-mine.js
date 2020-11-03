@@ -66,3 +66,10 @@ Validator.prototype = {
         }
     }
 }
+
+let validator=new Validator()
+validator.add('','required','')
+validator.add('dasda','isMobile','')
+validator.add('dssa','minLength:5','')
+
+validator.start();
