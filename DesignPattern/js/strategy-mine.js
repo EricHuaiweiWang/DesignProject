@@ -42,16 +42,16 @@ let rules = {
 function Validator() {
     this.items = []
 }
-
 Validator.prototype = {
-    constructor: Validator,
+    Constructor: Validator,
     add(value, rule, msg) {
-        let args = [value];
-        if (rule.indexOf(':') > -1) {
-            let arr = rule.split(':')
-            args.push(arr[1])
-            rule = args[0]
+        let args = [value]
+        let ruleArray = rule.split(':')
+        if (ruleArray.length > -1) {
+            args.push(ruleArray[1])
+            rule = ruleArray[0]
         }
+        args.push(msg)
         this.items.push(function () {
             return rules[rule].apply(this, args)
         })
@@ -59,17 +59,17 @@ Validator.prototype = {
     },
     start() {
         for (let func of this.items) {
-            let res = func()
-            if (res) {
-                App.log(res)
+            let result = func()
+            if (result) {
+                console.log(result)
             }
         }
-    }
+    },
 }
 
-let validator=new Validator()
-validator.add('','required','')
-validator.add('dasda','isMobile','')
-validator.add('dssa','minLength:5','')
+let validator = new Validator()
+validator.add('', 'required', '')
+validator.add('dasda', 'isMobile', '')
+validator.add('dssa', 'minLength:5', '')
 
 validator.start();
