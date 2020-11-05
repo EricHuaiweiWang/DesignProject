@@ -73,3 +73,22 @@ validator.add('dasda', 'isMobile', '')
 validator.add('dssa', 'minLength:5', '')
 
 validator.start();
+
+
+let S=function(salary){
+    return salary*4
+}
+
+let A=function(salary){
+    return salary*3
+}
+
+let B=function(salary){
+    return salary*2
+}
+
+let calculateBonus=function(func,salary){
+    return func(salary)
+}
+
+let sa= calculateBonus(S,10000)
