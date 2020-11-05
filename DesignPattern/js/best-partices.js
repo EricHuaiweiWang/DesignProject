@@ -1,4 +1,4 @@
-//global 
+//set debug switch
 var App = {
     debug: true,
     log: function (msg) {
