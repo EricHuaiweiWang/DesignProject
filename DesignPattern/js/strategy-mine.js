@@ -75,20 +75,38 @@ validator.add('dssa', 'minLength:5', '')
 validator.start();
 
 
-let S=function(salary){
-    return salary*4
+let S = function (salary) {
+    return salary * 4
 }
 
-let A=function(salary){
-    return salary*3
+let A = function (salary) {
+    return salary * 3
 }
 
-let B=function(salary){
-    return salary*2
+let B = function (salary) {
+    return salary * 2
 }
 
-let calculateBonus=function(func,salary){
+let calculateBonus = function (func, salary) {
     return func(salary)
 }
 
-let sa= calculateBonus(S,10000)
+let priceDiscount = {
+    large(price) {
+        return 0.9 * price
+    },
+    medium(price) {
+        return 0.7 * price
+    },
+    small(price) {
+        return 0.5 * price
+    }
+}
+
+let deal = function (discount, price) {
+    return discount(price)
+}
+
+let payFact = deal(priceDiscount.large, 1000)
+
+let sa = calculateBonus(S, 10000)
